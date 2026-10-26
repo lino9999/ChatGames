@@ -1,0 +1,115 @@
+name: ChatGames
+version: '${project.version}'
+main: io.github.lino9999.chatgames.ChatGamesPlugin
+api-version: '1.21.11'
+author: Lino
+description: High-performance chat puzzles, word challenges, math games, and live server races.
+website: https://github.com/lino9999/ChatGames
+softdepend:
+  - PlaceholderAPI
+
+commands:
+  chatgames:
+    description: Primary command interface for ChatGames
+    aliases:
+      - cg
+      - cgames
+      - chatgame
+    usage: /<command> help
+
+permissions:
+  chatgames.*:
+    description: Grants full access to all ChatGames features and administration commands.
+    default: op
+    children:
+      chatgames.admin: true
+      chatgames.user: true
+  chatgames.admin:
+    description: Grants administrative control over rounds, scores, configurations, and logs.
+    default: op
+    children:
+      chatgames.user: true
+      chatgames.command.start.*: true
+      chatgames.command.stop: true
+      chatgames.command.score.manage: true
+      chatgames.command.visibility.others: true
+      chatgames.command.audio.others: true
+      chatgames.command.scheduler: true
+      chatgames.command.history: true
+      chatgames.command.reload: true
+  chatgames.user:
+    description: Standard player access to participate in rounds and view rankings.
+    default: true
+    children:
+      chatgames.participate: true
+      chatgames.command.help: true
+      chatgames.command.leaderboard: true
+      chatgames.command.fastest: true
+      chatgames.command.score: true
+      chatgames.command.visibility: true
+      chatgames.command.audio: true
+  chatgames.participate:
+    description: Allows viewing and participating in active chat puzzles and races.
+    default: true
+  chatgames.command.help:
+    description: Allows viewing the command help guide.
+    default: true
+  chatgames.command.leaderboard:
+    description: Allows viewing the top score rankings.
+    default: true
+  chatgames.command.fastest:
+    description: Allows viewing the fastest reaction speed rankings.
+    default: true
+  chatgames.command.score:
+    description: Allows checking personal score and statistics.
+    default: true
+  chatgames.command.score.manage:
+    description: Allows inspecting, adding, subtracting, setting, or resetting player scores.
+    default: op
+  chatgames.command.visibility:
+    description: Allows toggling personal round announcement visibility.
+    default: true
+  chatgames.command.visibility.others:
+    description: Allows toggling round visibility for other players.
+    default: op
+  chatgames.command.audio:
+    description: Allows toggling personal sound notifications.
+    default: true
+  chatgames.command.audio.others:
+    description: Allows toggling sound notifications for other players.
+    default: op
+  chatgames.command.scheduler:
+    description: Allows pausing or resuming the automated round scheduler.
+    default: op
+  chatgames.command.history:
+    description: Allows inspecting recent round audit history.
+    default: op
+  chatgames.command.stop:
+    description: Allows cancelling an active round immediately.
+    default: op
+  chatgames.command.reload:
+    description: Allows reloading all configuration files.
+    default: op
+  chatgames.command.start.*:
+    description: Allows manually starting any puzzle or challenge category.
+    default: op
+    children:
+      chatgames.command.start.scramble: true
+      chatgames.command.start.reverse: true
+      chatgames.command.start.type_race: true
+      chatgames.command.start.number_guess: true
+      chatgames.command.start.memory_list: true
+      chatgames.command.start.click_rush: true
+      chatgames.command.start.missing_chars: true
+      chatgames.command.start.hover_reveal: true
+      chatgames.command.start.cipher_string: true
+      chatgames.command.start.arithmetic: true
+      chatgames.command.start.algebra: true
+      chatgames.command.start.quiz: true
+      chatgames.command.start.slayer: true
+      chatgames.command.start.mining: true
+      chatgames.command.start.building: true
+      chatgames.command.start.angling: true
+      chatgames.command.start.culinary: true
+      chatgames.command.start.artisan: true
+      chatgames.command.start.smelting: true

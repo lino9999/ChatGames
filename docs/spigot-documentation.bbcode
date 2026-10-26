@@ -1,0 +1,241 @@
+[CENTER]
+[SIZE=6][B][COLOR=#FFAA00]✦ ChatGames - Official Documentation ✦[/COLOR][/B][/SIZE]
+[SIZE=4][COLOR=#AAAAAA]Complete Configuration, Permissions, Placeholders, and Developer API Reference[/COLOR][/SIZE]
+[SIZE=2][COLOR=#55FF55]Engineered by Lino | Spigot & Paper 1.21.11 - 26.3 Compatible[/COLOR][/SIZE]
+
+[URL='https://github.com/lino9999/ChatGames'][B][COLOR=#55FFFF]GitHub Source[/COLOR][/B][/URL] | [URL='https://github.com/lino9999/ChatGames/releases'][B][COLOR=#FFFF55]Download Release JAR[/COLOR][/B][/URL]
+[/CENTER]
+
+[HR][/HR]
+
+[SIZE=5][B][COLOR=#FFAA00]1. Installation & Requirements[/COLOR][/B][/SIZE]
+[LIST]
+[*][B]Java Runtime:[/B] Java 21 or higher.
+[*][B]Server Platform:[/B] Spigot, Paper, Purpur, or Folia supporting Minecraft 1.21.11 to 26.3.
+[*][B]Optional Dependency:[/B] [URL='https://www.spigotmc.org/resources/placeholderapi.6245/']PlaceholderAPI[/URL].
+[/LIST]
+
+[B]Installation Steps:[/B]
+[LIST=1]
+[*]Download [FONT=Courier New]ChatGames-1.0.0.jar[/FONT] and place it inside your server's [FONT=Courier New]plugins/[/FONT] directory.
+[*]Restart your server to generate [FONT=Courier New]config.yml[/FONT], [FONT=Courier New]lang.yml[/FONT], [FONT=Courier New]content.yml[/FONT], [FONT=Courier New]challenges.yml[/FONT], and [FONT=Courier New]prizes.yml[/FONT].
+[*]Customize your settings and run [FONT=Courier New]/cg reload[/FONT].
+[/LIST]
+
+[HR][/HR]
+
+[SIZE=5][B][COLOR=#FFAA00]2. Permissions Reference[/COLOR][/B][/SIZE]
+
+[TABLE]
+[TR]
+[TH]Permission Node[/TH]
+[TH]Default[/TH]
+[TH]Description[/TH]
+[/TR]
+[TR]
+[TD][FONT=Courier New]chatgames.*[/FONT][/TD]
+[TD]op[/TD]
+[TD]Grants full administrative and player access.[/TD]
+[/TR]
+[TR]
+[TD][FONT=Courier New]chatgames.admin[/FONT][/TD]
+[TD]op[/TD]
+[TD]Grants access to start, stop, score management, scheduler, history, and reload.[/TD]
+[/TR]
+[TR]
+[TD][FONT=Courier New]chatgames.user[/FONT][/TD]
+[TD]true[/TD]
+[TD]Default player access to participate, view rankings, and toggle preferences.[/TD]
+[/TR]
+[TR]
+[TD][FONT=Courier New]chatgames.participate[/FONT][/TD]
+[TD]true[/TD]
+[TD]Allows viewing and participating in active rounds.[/TD]
+[/TR]
+[TR]
+[TD][FONT=Courier New]chatgames.command.help[/FONT][/TD]
+[TD]true[/TD]
+[TD]Allows viewing [FONT=Courier New]/cg help[/FONT].[/TD]
+[/TR]
+[TR]
+[TD][FONT=Courier New]chatgames.command.leaderboard[/FONT][/TD]
+[TD]true[/TD]
+[TD]Allows viewing [FONT=Courier New]/cg top[/FONT].[/TD]
+[/TR]
+[TR]
+[TD][FONT=Courier New]chatgames.command.fastest[/FONT][/TD]
+[TD]true[/TD]
+[TD]Allows viewing [FONT=Courier New]/cg fastest[/FONT].[/TD]
+[/TR]
+[TR]
+[TD][FONT=Courier New]chatgames.command.score[/FONT][/TD]
+[TD]true[/TD]
+[TD]Allows checking personal score via [FONT=Courier New]/cg score[/FONT].[/TD]
+[/TR]
+[TR]
+[TD][FONT=Courier New]chatgames.command.score.manage[/FONT][/TD]
+[TD]op[/TD]
+[TD]Allows modifying or resetting player scores.[/TD]
+[/TR]
+[TR]
+[TD][FONT=Courier New]chatgames.command.visibility[/FONT][/TD]
+[TD]true[/TD]
+[TD]Allows toggling chat broadcasts via [FONT=Courier New]/cg visibility[/FONT].[/TD]
+[/TR]
+[TR]
+[TD][FONT=Courier New]chatgames.command.audio[/FONT][/TD]
+[TD]true[/TD]
+[TD]Allows toggling sound alerts via [FONT=Courier New]/cg audio[/FONT].[/TD]
+[/TR]
+[TR]
+[TD][FONT=Courier New]chatgames.command.start.*[/FONT][/TD]
+[TD]op[/TD]
+[TD]Allows launching any puzzle or challenge round.[/TD]
+[/TR]
+[TR]
+[TD][FONT=Courier New]chatgames.command.stop[/FONT][/TD]
+[TD]op[/TD]
+[TD]Allows cancelling an active round via [FONT=Courier New]/cg stop[/FONT].[/TD]
+[/TR]
+[TR]
+[TD][FONT=Courier New]chatgames.command.scheduler[/FONT][/TD]
+[TD]op[/TD]
+[TD]Allows toggling the automated scheduler via [FONT=Courier New]/cg scheduler[/FONT].[/TD]
+[/TR]
+[TR]
+[TD][FONT=Courier New]chatgames.command.history[/FONT][/TD]
+[TD]op[/TD]
+[TD]Allows inspecting audit history via [FONT=Courier New]/cg history[/FONT].[/TD]
+[/TR]
+[TR]
+[TD][FONT=Courier New]chatgames.command.reload[/FONT][/TD]
+[TD]op[/TD]
+[TD]Allows reloading configuration files via [FONT=Courier New]/cg reload[/FONT].[/TD]
+[/TR]
+[/TABLE]
+
+[HR][/HR]
+
+[SIZE=5][B][COLOR=#FFAA00]3. Configuration Architecture[/COLOR][/B][/SIZE]
+
+[SIZE=4][B][COLOR=#55FFFF]config.yml - Engine, Scheduler, Database & Modes[/COLOR][/B][/SIZE]
+[CODE=yaml]
+engine:
+  prefix: '&8[&6&lChatGames&8]'
+  suppress-winning-chat: true
+  require-participation-permission: false
+  speed-leaderboard-enabled: true
+  restricted-worlds:
+    - 'disabled_world_example'
+
+scheduler:
+  enabled: true
+  interval-seconds: 300
+  minimum-online-players: 1
+  include-vanished-players: false
+
+database:
+  driver: 'SQLITE' # SQLITE or MYSQL
+  table-prefix: 'cg_'
+[/CODE]
+
+[SIZE=4][B][COLOR=#55FFFF]prizes.yml - Structured Prize Pools & Inventory Protection[/COLOR][/B][/SIZE]
+When [FONT=Courier New]GIVE_ITEM[/FONT] is triggered, ChatGames automatically checks for free inventory slots and safely drops any overflow items at the winner's feet.
+[CODE=yaml]
+pools:
+  common-pool:
+    weight: 70.0
+    min-online: 1
+    required-permission: ''
+    actions:
+      - type: 'GIVE_ITEM'
+        material: 'IRON_INGOT'
+        amount: 5
+        probability: 100.0
+      - type: 'PLAYER_MESSAGE'
+        value: '{prefix} &aYou earned &f5x Iron Ingots &afor winning the round!'
+        probability: 100.0
+[/CODE]
+
+[HR][/HR]
+
+[SIZE=5][B][COLOR=#FFAA00]4. PlaceholderAPI Placeholders[/COLOR][/B][/SIZE]
+
+[TABLE]
+[TR]
+[TH]Placeholder[/TH]
+[TH]Description[/TH]
+[/TR]
+[TR]
+[TD][FONT=Courier New]%chatgames_score%[/FONT][/TD]
+[TD]Competitor's total score / wins.[/TD]
+[/TR]
+[TR]
+[TD][FONT=Courier New]%chatgames_fastest_time%[/FONT][/TD]
+[TD]Competitor's fastest reaction record in seconds.[/TD]
+[/TR]
+[TR]
+[TD][FONT=Courier New]%chatgames_visibility%[/FONT][/TD]
+[TD]Returns whether round announcements are visible (true/false).[/TD]
+[/TR]
+[TR]
+[TD][FONT=Courier New]%chatgames_sound%[/FONT][/TD]
+[TD]Returns whether audio cues are enabled (true/false).[/TD]
+[/TR]
+[TR]
+[TD][FONT=Courier New]%chatgames_rank_score%[/FONT][/TD]
+[TD]Competitor's score leaderboard rank.[/TD]
+[/TR]
+[TR]
+[TD][FONT=Courier New]%chatgames_rank_speed%[/FONT][/TD]
+[TD]Competitor's reaction speed leaderboard rank.[/TD]
+[/TR]
+[TR]
+[TD][FONT=Courier New]%chatgames_active%[/FONT][/TD]
+[TD]Returns true if a round is currently running.[/TD]
+[/TR]
+[TR]
+[TD][FONT=Courier New]%chatgames_current_game%[/FONT][/TD]
+[TD]Identifier of the active category, or none.[/TD]
+[/TR]
+[TR]
+[TD][FONT=Courier New]%chatgames_leaderboard_player_1%[/FONT][/TD]
+[TD]Player name at score rank #1 (supports 1-10).[/TD]
+[/TR]
+[TR]
+[TD][FONT=Courier New]%chatgames_leaderboard_score_1%[/FONT][/TD]
+[TD]Score value at rank #1 (supports 1-10).[/TD]
+[/TR]
+[TR]
+[TD][FONT=Courier New]%chatgames_speed_player_1%[/FONT][/TD]
+[TD]Player name at speed rank #1 (supports 1-10).[/TD]
+[/TR]
+[TR]
+[TD][FONT=Courier New]%chatgames_speed_time_1%[/FONT][/TD]
+[TD]Reaction time at speed rank #1 (supports 1-10).[/TD]
+[/TR]
+[/TABLE]
+
+[HR][/HR]
+
+[SIZE=5][B][COLOR=#FFAA00]5. Developer API[/COLOR][/B][/SIZE]
+
+[CODE=java]
+@EventHandler
+public void onRoundBegin(RoundBeginEvent event) {
+    ChallengeCategory category = event.getCategory();
+    String objective = event.getObjectiveDescription();
+}
+
+@EventHandler
+public void onRoundComplete(RoundCompleteEvent event) {
+    if (event.hasWinners()) {
+        PodiumRecord firstPlace = event.getPodium().get(0);
+    }
+}
+[/CODE]
+
+[HR][/HR]
+[CENTER]
+[SIZE=3][COLOR=#AAAAAA]ChatGames is open source under the MIT License | Engineered by Lino[/COLOR][/SIZE]
+[/CENTER]

@@ -1,0 +1,117 @@
+pools:
+  common-pool:
+    weight: 70.0
+    min-online: 1
+    required-permission: ''
+    actions:
+      - type: 'GIVE_ITEM'
+        material: 'IRON_INGOT'
+        amount: 5
+        probability: 100.0
+      - type: 'PLAYER_MESSAGE'
+        value: '{prefix} &aYou earned &f5x Iron Ingots &afor winning the round!'
+        probability: 100.0
+
+  uncommon-pool:
+    weight: 25.0
+    min-online: 1
+    required-permission: ''
+    actions:
+      - type: 'GIVE_ITEM'
+        material: 'DIAMOND'
+        amount: 2
+        probability: 100.0
+      - type: 'CONSOLE_COMMAND'
+        value: 'xp add {player} 75 points'
+        probability: 100.0
+      - type: 'PLAYER_MESSAGE'
+        value: '{prefix} &bYou received &f2x Diamonds &band &f75 XP&b!'
+        probability: 100.0
+
+  rare-pool:
+    weight: 5.0
+    min-online: 2
+    required-permission: ''
+    actions:
+      - type: 'GIVE_ITEM'
+        material: 'DIAMOND_BLOCK'
+        amount: 1
+        probability: 100.0
+      - type: 'CONSOLE_COMMAND'
+        value: 'xp add {player} 250 points'
+        probability: 100.0
+      - type: 'BROADCAST'
+        value: '{prefix} &6&lLUCKY WIN! &e{player} &7unlocked the &6Rare Prize Pool&7!'
+        probability: 100.0
+
+  runner-up-pool:
+    weight: 100.0
+    min-online: 1
+    required-permission: ''
+    actions:
+      - type: 'GIVE_ITEM'
+        material: 'GOLD_INGOT'
+        amount: 3
+        probability: 100.0
+      - type: 'PLAYER_MESSAGE'
+        value: '{prefix} &eYou placed on the podium and earned &f3x Gold Ingots&e!'
+        probability: 100.0
+
+podium-assignments:
+  default:
+    1:
+      - 'common-pool'
+      - 'uncommon-pool'
+      - 'rare-pool'
+    2:
+      - 'runner-up-pool'
+    3:
+      - 'runner-up-pool'
+
+  scramble:
+    1:
+      - 'common-pool'
+      - 'uncommon-pool'
+  reverse:
+    1:
+      - 'common-pool'
+      - 'uncommon-pool'
+  type_race:
+    1:
+      - 'common-pool'
+      - 'uncommon-pool'
+  number_guess:
+    1:
+      - 'common-pool'
+      - 'uncommon-pool'
+  memory_list:
+    1:
+      - 'uncommon-pool'
+      - 'rare-pool'
+  click_rush:
+    1:
+      - 'common-pool'
+  missing_chars:
+    1:
+      - 'common-pool'
+      - 'uncommon-pool'
+  hover_reveal:
+    1:
+      - 'common-pool'
+  cipher_string:
+    1:
+      - 'common-pool'
+      - 'uncommon-pool'
+  arithmetic:
+    1:
+      - 'common-pool'
+      - 'uncommon-pool'
+  algebra:
+    1:
+      - 'uncommon-pool'
+      - 'rare-pool'
+  quiz:
+    1:
+      - 'common-pool'
+      - 'uncommon-pool'
+      - 'rare-pool'

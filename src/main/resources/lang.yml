@@ -1,0 +1,441 @@
+system:
+  unknown-subcommand: '{prefix} &cUnrecognized subcommand. Run &e/cg help &cfor command usage.'
+  configuration-reloaded: '{prefix} &aAll ChatGames configurations have been reloaded.'
+  permission-denied: '{prefix} &cYou lack the required permission to run this command.'
+  players-only: '{prefix} &cOnly online players may execute this command.'
+  competitor-not-found: '{prefix} &cNo record found for player &e{player}&c.'
+  competitor-reset: '{prefix} &eCompetitor profile for &f{player} &ehas been cleared.'
+  invalid-number: '{prefix} &cPlease provide a valid whole number.'
+  invalid-syntax: '{prefix} &cInvalid command syntax. Use &e/cg help &cfor reference.'
+  invalid-target-type: '{prefix} &cUnknown material or entity identifier: &e{target}&c.'
+  command-cooldown: '{prefix} &cPlease wait &e{remaining}s &cbefore running that command again.'
+  world-restricted: '{prefix} &cRounds cannot be triggered inside this world.'
+  round-launched: '{prefix} &aManually launched a &e{category} &around!'
+  round-cancelled: '{prefix} &eThe active round has been stopped.'
+  no-active-round: '{prefix} &cThere is no round running right now.'
+  inventory-overflow: '{prefix} &eYour inventory was full, so your item prize was dropped at your feet!'
+  empty-podium-slot: '---'
+  status-enabled: '&aENABLED'
+  status-disabled: '&cDISABLED'
+
+score:
+  self-balance: '{prefix} &7Your current score: &e&l{score} &7wins.'
+  other-balance: '{prefix} &f{player}&7''s current score: &e&l{score} &7wins.'
+  granted: '{prefix} &aGranted &e{amount} &ascore to &f{player}&a.'
+  deducted: '{prefix} &cDeducted &e{amount} &cscore from &f{player}&c.'
+  updated: '{prefix} &aUpdated &f{player}&a''s score to &e{amount}&a.'
+
+preferences:
+  visibility-toggled: '{prefix} &7Chat game broadcasts are now {state}&7.'
+  audio-toggled: '{prefix} &7Chat game sound alerts are now {state}&7.'
+  scheduler-toggled: '{prefix} &7Automated round scheduler is now {state} &7server-wide.'
+
+gameplay:
+  awaiting-remaining-winners: '{prefix} &aSpot claimed! &7Waiting for remaining podium spots to fill...'
+  case-mismatch-hint: '{prefix} &eClose! Double-check uppercase and lowercase letters.'
+
+history:
+  disabled: '{prefix} &cLocal round history logging is disabled in config.yml.'
+  empty: '{prefix} &cNo round history entries have been recorded yet.'
+  header: '{prefix} &6Recent &e{count} &6round audit entries:'
+
+leaderboards:
+  score:
+    header: '&8&m----------&r &6&lCHATGAMES TOP SCORES &8&m----------'
+    row-format: '&e#{rank} &f{player} &8» &6&l{score} &7wins'
+    personal-footer: '&7Your total score: &e&l{personal_score} &7wins'
+    global-footer: '&7Total rounds won server-wide: &6&l{global_wins}'
+    footer: '&8&m---------------------------------------------'
+    empty: '{prefix} &cNo score records exist yet. Win a round to claim #1!'
+
+  speed:
+    header: '&8&m----------&r &b&lFASTEST REACTIONS &8&m----------'
+    row-format: '&b#{rank} &f{player} &8» &e&l{elapsed}s'
+    personal-footer: '&7Your fastest reaction: &e&l{personal_best}s'
+    footer: '&8&m------------------------------------------'
+    empty: '{prefix} &cNo reaction records exist yet. Win a text game to set a record!'
+    disabled: '{prefix} &cThe reaction speed leaderboard is disabled on this server.'
+
+help-menu:
+  - '&8&m-------------------------------------------------'
+  - '&6&lChatGames &8» &fCommand Directory'
+  - ''
+  - '&e/cg help &8- &7Display this command reference.'
+  - '&e/cg start <category|random> [args] &8- &7Launch a specific or random round.'
+  - '&e/cg stop &8- &7Cancel the currently active round.'
+  - '&e/cg top &8- &7View the all-time top score leaderboard.'
+  - '&e/cg fastest &8- &7View the fastest reaction time records.'
+  - '&e/cg score [player] &8- &7Inspect your own or another player''s score.'
+  - '&e/cg score <add|take|set|reset> <player> [amount] &8- &7Manage competitor scores.'
+  - '&e/cg visibility [player] &8- &7Toggle round chat announcements.'
+  - '&e/cg audio [player] &8- &7Toggle round sound effects.'
+  - '&e/cg scheduler &8- &7Pause or resume automatic rounds.'
+  - '&e/cg history [count] &8- &7Inspect recent round audit logs.'
+  - '&e/cg reload &8- &7Reload all configuration files.'
+  - ''
+  - '&6&lCategories:'
+  - '&ePuzzles: &fscramble, reverse, type_race, number_guess, memory_list, click_rush, missing_chars, hover_reveal, cipher_string, arithmetic, algebra, quiz'
+  - '&eChallenges: &fslayer, mining, building, angling, culinary, artisan, smelting'
+  - '&8&m-------------------------------------------------'
+
+announcements:
+  scramble:
+    begin:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&fUnscramble the letters within &e{duration}s&f:'
+      - '[center]&b&l{prompt}'
+      - ''
+    victory:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&a{winner_1} &7unscrambled &e{answer} &7in &b{time_1}s&7!'
+      - ''
+    timeout:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&cTime is up! Nobody unscrambled the word in time.'
+      - '[center]&7The solution was &e{answer}&7.'
+      - ''
+
+  reverse:
+    begin:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&fWrite this reversed text backwards within &e{duration}s&f:'
+      - '[center]&b&l{prompt}'
+      - ''
+    victory:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&a{winner_1} &7decoded &e{answer} &7in &b{time_1}s&7!'
+      - ''
+    timeout:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&cTime is up! Nobody decoded the reversed text.'
+      - '[center]&7The solution was &e{answer}&7.'
+      - ''
+
+  type_race:
+    begin:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&fBe the fastest to type the following within &e{duration}s&f:'
+      - '[center]&b&l{prompt}'
+      - ''
+    victory:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&a{winner_1} &7typed &e{answer} &7in &b{time_1}s&7!'
+      - ''
+    timeout:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&cTime is up! Nobody typed the phrase in time.'
+      - '[center]&7The phrase was &e{answer}&7.'
+      - ''
+
+  number_guess:
+    begin:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&fGuess the secret number between &b{prompt} &f(&e{duration}s&f)!'
+      - ''
+    victory:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&a{winner_1} &7guessed the secret number &e{answer} &7in &b{time_1}s&7!'
+      - ''
+    timeout:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&cTime is up! Nobody found the secret number.'
+      - '[center]&7The secret number was &e{answer}&7.'
+      - ''
+
+  memory_list:
+    begin:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&fMemorize these items in &e{memorize}s &fbefore chat clears:'
+      - '[center]&b&l{prompt}'
+      - ''
+    recall-phase:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&fEnter the memorized items in exact order (&e{duration}s&f)!'
+      - '[center]&7Separate items with commas (example: &fitem1, item2, item3&7)'
+      - ''
+    victory:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&a{winner_1} &7recalled the sequence in &b{time_1}s&7!'
+      - '[center]&7Sequence: &e{answer}'
+      - ''
+    timeout:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&cTime is up! Nobody recalled the memory sequence.'
+      - '[center]&7Sequence: &e{answer}'
+      - ''
+
+  click_rush:
+    button-label: '&a&l[CLICK TO CLAIM VICTORY]'
+    button-tooltip: '&eClick now to win this round!'
+    begin:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&fClick the interactive button below within &e{duration}s&f:'
+      - '[center]{interactive_button}'
+      - ''
+    victory:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&a{winner_1} &7clicked the button first in &b{time_1}s&7!'
+      - ''
+    timeout:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&cTime is up! Nobody clicked the button in time.'
+      - ''
+
+  missing_chars:
+    begin:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&fComplete the masked word within &e{duration}s&f:'
+      - '[center]&b&l{prompt}'
+      - ''
+    victory:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&a{winner_1} &7completed &e{answer} &7in &b{time_1}s&7!'
+      - ''
+    timeout:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&cTime is up! Nobody completed the masked word.'
+      - '[center]&7The full word was &e{answer}&7.'
+      - ''
+
+  hover_reveal:
+    hover-label: '&e&l[HOVER CURSOR HERE]'
+    hover-tooltip: '&7Secret Word: &b&l{prompt}'
+    begin:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&fHover over the badge below and type the hidden word (&e{duration}s&f):'
+      - '[center]{interactive_hover}'
+      - ''
+    victory:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&a{winner_1} &7revealed and typed &e{answer} &7in &b{time_1}s&7!'
+      - ''
+    timeout:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&cTime is up! Nobody typed the hidden word.'
+      - '[center]&7The hidden word was &e{answer}&7.'
+      - ''
+
+  cipher_string:
+    begin:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&fType this generated code within &e{duration}s&f:'
+      - '[center]&b&l{prompt}'
+      - ''
+    victory:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&a{winner_1} &7entered &e{answer} &7in &b{time_1}s&7!'
+      - ''
+    timeout:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&cTime is up! Nobody entered the generated code.'
+      - '[center]&7The code was &e{answer}&7.'
+      - ''
+
+  arithmetic:
+    begin:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&fCalculate the result within &e{duration}s&f:'
+      - '[center]&b&l{prompt}'
+      - ''
+    victory:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&a{winner_1} &7calculated &e{answer} &7in &b{time_1}s&7!'
+      - ''
+    timeout:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&cTime is up! Nobody solved the arithmetic problem.'
+      - '[center]&7The answer was &e{answer}&7.'
+      - ''
+
+  algebra:
+    row-pair-template: '&d{symbol} &7+ &d{symbol} &7+ &d{symbol} &7= &e{sum}'
+    final-row-template: '&d{symbol_a} &7+ &d{symbol_b} &7+ &b{glyph} &7= &e{total}'
+    begin:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&fDeduce the value of &b{glyph} &fwithin &e{duration}s&f:'
+      - ''
+      - '[center]{eq_line_1}'
+      - '[center]{eq_line_2}'
+      - '[center]{eq_line_3}'
+      - ''
+    victory:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&a{winner_1} &7solved for &b{glyph} &7(&e{answer}&7) in &b{time_1}s&7!'
+      - ''
+    timeout:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&cTime is up! Nobody solved the algebra system.'
+      - '[center]&7The value of &b{glyph} &7was &e{answer}&7.'
+      - ''
+
+  quiz:
+    begin:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&fAnswer the trivia question within &e{duration}s&f:'
+      - '[center]&b{prompt}'
+      - ''
+    victory:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&a{winner_1} &7answered &e{answer} &7in &b{time_1}s&7!'
+      - ''
+    timeout:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&cTime is up! Nobody answered the trivia question.'
+      - '[center]&7Acceptable answer: &e{answer}&7.'
+      - ''
+
+  slayer:
+    begin:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&fSlay &b{quota}x {target} &fwithin &e{duration}s&f!'
+      - ''
+    victory:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&a{winner} &7slayed &e{quota}x {target} &7in &b{elapsed}s&7!'
+      - ''
+    timeout:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&cTime is up! Nobody completed the slayer challenge.'
+      - ''
+
+  mining:
+    begin:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&fMine &b{quota}x {target} &fwithin &e{duration}s&f!'
+      - ''
+    victory:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&a{winner} &7mined &e{quota}x {target} &7in &b{elapsed}s&7!'
+      - ''
+    timeout:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&cTime is up! Nobody completed the mining challenge.'
+      - ''
+
+  building:
+    begin:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&fPlace &b{quota}x {target} &fwithin &e{duration}s&f!'
+      - ''
+    victory:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&a{winner} &7placed &e{quota}x {target} &7in &b{elapsed}s&7!'
+      - ''
+    timeout:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&cTime is up! Nobody completed the building challenge.'
+      - ''
+
+  angling:
+    begin:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&fCatch &b{quota}x {target} &fwithin &e{duration}s&f!'
+      - ''
+    victory:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&a{winner} &7caught &e{quota}x {target} &7in &b{elapsed}s&7!'
+      - ''
+    timeout:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&cTime is up! Nobody completed the fishing challenge.'
+      - ''
+
+  culinary:
+    begin:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&fConsume &b{quota}x {target} &fwithin &e{duration}s&f!'
+      - ''
+    victory:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&a{winner} &7consumed &e{quota}x {target} &7in &b{elapsed}s&7!'
+      - ''
+    timeout:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&cTime is up! Nobody completed the culinary challenge.'
+      - ''
+
+  artisan:
+    begin:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&fCraft &b{quota}x {target} &fwithin &e{duration}s&f!'
+      - ''
+    victory:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&a{winner} &7crafted &e{quota}x {target} &7in &b{elapsed}s&7!'
+      - ''
+    timeout:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&cTime is up! Nobody completed the crafting challenge.'
+      - ''
+
+  smelting:
+    begin:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&fSmelt and extract &b{quota}x {target} &fwithin &e{duration}s&f!'
+      - ''
+    victory:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&a{winner} &7smelted &e{quota}x {target} &7in &b{elapsed}s&7!'
+      - ''
+    timeout:
+      - ''
+      - '[center]&6✦ {prefix} &6✦'
+      - '[center]&cTime is up! Nobody completed the smelting challenge.'
+      - ''

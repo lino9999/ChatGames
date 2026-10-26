@@ -1,0 +1,13 @@
+Plugin originale/
+Plugin Originale/
+.work/
+.analysis/
+.verification/
+.tools/
+target/
+dist/
+.git/
+.idea/
+.vscode/
+*.log
+*.db

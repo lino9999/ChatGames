@@ -1,0 +1,183 @@
+engine:
+  prefix: '&8[&6&lChatGames&8]'
+  suppress-winning-chat: true
+  require-participation-permission: false
+  speed-leaderboard-enabled: true
+  restricted-worlds:
+    - 'disabled_world_example'
+  allow-admin-start-in-restricted-worlds: true
+
+scheduler:
+  enabled: true
+  interval-seconds: 300
+  minimum-online-players: 1
+  include-vanished-players: false
+  randomized-interval:
+    enabled: false
+    min-seconds: 120
+    max-seconds: 600
+
+database:
+  driver: 'SQLITE'
+  table-prefix: 'cg_'
+  sqlite:
+    file-name: 'competitors.sqlite'
+  mysql:
+    host: '127.0.0.1'
+    port: 3306
+    database: 'chatgames'
+    username: 'root'
+    password: 'password'
+    parameters: '?autoReconnect=true&useSSL=false&characterEncoding=UTF-8'
+
+audio:
+  master-volume: 0.6
+  master-pitch: 1.0
+  cues:
+    round-begin: 'minecraft:entity.experience_orb.pickup'
+    round-win: 'minecraft:entity.player.levelup'
+    round-timeout: 'minecraft:block.note_block.bass'
+    case-mismatch: 'minecraft:block.note_block.didgeridoo'
+
+audit:
+  console-logging: true
+  file-logging: true
+  file-name: 'round-history.log'
+
+webhook:
+  enabled: false
+  endpoint-url: ''
+  bot-username: 'ChatGames'
+  avatar-url: ''
+  embed:
+    title: 'ChatGames Round Complete'
+    description: 'A round has just finished on the server!'
+    color-hex: '#FFAA00'
+    winner-label: '{winner} ({elapsed}s)'
+    category-label: '{category}'
+
+modes:
+  scramble:
+    enabled: true
+    duration-seconds: 20
+    podium-slots: 1
+    strict-case: true
+    banner:
+      title: '&b{prompt}'
+      subtitle: '&eUnscramble the word!'
+
+  reverse:
+    enabled: true
+    duration-seconds: 20
+    podium-slots: 1
+    strict-case: true
+    banner:
+      title: '&b{prompt}'
+      subtitle: '&eReverse the text!'
+
+  type_race:
+    enabled: true
+    duration-seconds: 20
+    podium-slots: 1
+    strict-case: true
+    banner:
+      title: '&b{prompt}'
+      subtitle: '&eType it fast!'
+
+  number_guess:
+    enabled: true
+    duration-seconds: 20
+    podium-slots: 1
+    strict-case: false
+    min-number: 1
+    max-number: 25
+    banner:
+      title: '&b{prompt}'
+      subtitle: '&eGuess the secret number!'
+
+  memory_list:
+    enabled: true
+    duration-seconds: 20
+    memorize-seconds: 7
+    sequence-length: 3
+    podium-slots: 1
+    strict-case: false
+    banner:
+      title: '&bRecall the List!'
+      subtitle: '&e{duration}s remaining'
+
+  click_rush:
+    enabled: true
+    duration-seconds: 20
+    podium-slots: 1
+    banner:
+      title: '&eClick the Prompt!'
+      subtitle: '&fYou have &e{duration}s'
+
+  missing_chars:
+    enabled: true
+    duration-seconds: 20
+    podium-slots: 1
+    strict-case: true
+    mask-percentage: 35
+    banner:
+      title: '&b{prompt}'
+      subtitle: '&eFill in the missing letters!'
+
+  hover_reveal:
+    enabled: true
+    duration-seconds: 20
+    podium-slots: 1
+    strict-case: true
+    banner:
+      title: '&eInspect Chat Tooltip!'
+      subtitle: '&fYou have &e{duration}s'
+
+  cipher_string:
+    enabled: true
+    duration-seconds: 20
+    podium-slots: 1
+    strict-case: true
+    min-length: 6
+    max-length: 8
+    charset-preset: 'ALPHANUMERIC'
+    custom-charset: 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+    banner:
+      title: '&b{prompt}'
+      subtitle: '&eType the code!'
+
+  arithmetic:
+    enabled: true
+    duration-seconds: 20
+    podium-slots: 1
+    strict-case: false
+    complexity-tier: 2
+    allowed-operators:
+      - '+'
+      - '-'
+      - '*'
+      - '/'
+    banner:
+      title: '&b{prompt}'
+      subtitle: '&eSolve the equation!'
+
+  algebra:
+    enabled: true
+    duration-seconds: 25
+    podium-slots: 1
+    strict-case: false
+    target-min: 25
+    target-max: 100
+    unknown-glyph: '?'
+    banner:
+      title: '&bALGEBRA PUZZLE'
+      subtitle: '&eFind the value of &b{glyph}'
+
+  quiz:
+    enabled: true
+    duration-seconds: 20
+    podium-slots: 1
+    strict-case: false
+    banner:
+      title: '&bTRIVIA QUIZ'
+      subtitle: '&eAnswer in chat!'

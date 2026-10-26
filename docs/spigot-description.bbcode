@@ -1,0 +1,121 @@
+[CENTER]
+[SIZE=6][B][COLOR=#FFAA00]✦ ChatGames ✦[/COLOR][/B][/SIZE]
+[SIZE=4][COLOR=#AAAAAA]High-Performance Chat Puzzles & Live World Challenges for Modern Minecraft Servers[/COLOR][/SIZE]
+[SIZE=2][COLOR=#55FF55]Compatible with Spigot, Paper, Purpur & Folia 1.21.11 to 26.3 | Zero-Lag Architecture[/COLOR][/SIZE]
+
+[IMG]https://raw.githubusercontent.com/lino9999/ChatGames/main/assets/chatgames-icon-128.png[/IMG]
+
+[URL='https://github.com/lino9999/ChatGames'][B][COLOR=#55FFFF]GitHub Repository[/COLOR][/B][/URL] | [URL='https://github.com/lino9999/ChatGames/releases'][B][COLOR=#FFFF55]Downloads & Releases[/COLOR][/B][/URL] | [URL='https://github.com/lino9999/ChatGames/blob/main/docs/spigot-documentation.bbcode'][B][COLOR=#FFAA00]Full Documentation[/COLOR][/B][/URL]
+[/CENTER]
+
+[HR][/HR]
+
+[SIZE=5][B][COLOR=#FFAA00]★ Overview[/COLOR][/B][/SIZE]
+[B]ChatGames[/B] is a modern, lightweight chat puzzle and live server challenge engine built from scratch in Java 21 for server owners who want active, engaging chat competition with zero main-thread lag.
+
+Featuring [B]12 interactive chat puzzles[/B] and [B]7 in-world action challenges[/B], ChatGames provides clickable chat buttons, hoverable secret tooltips, multi-winner podiums, structured prize pools with inventory overflow protection, asynchronous SQLite & MySQL persistence, Discord webhooks, and PlaceholderAPI support.
+
+[HR][/HR]
+
+[SIZE=5][B][COLOR=#FFAA00]★ 19 Game Categories[/COLOR][/B][/SIZE]
+
+[B][COLOR=#55FFFF]12 Chat Puzzles:[/COLOR][/B]
+[LIST]
+[*][B]Scramble ([FONT=Courier New]scramble[/FONT]):[/B] Unscramble mixed word and phrase anagrams.
+[*][B]Reverse ([FONT=Courier New]reverse[/FONT]):[/B] Decode backwards text in chat.
+[*][B]Type Race ([FONT=Courier New]type_race[/FONT]):[/B] Fast typing challenge where the quickest player wins.
+[*][B]Number Guess ([FONT=Courier New]number_guess[/FONT]):[/B] Guess the secret number within a configured range.
+[*][B]Memory List ([FONT=Courier New]memory_list[/FONT]):[/B] Memorize a sequence of items before chat clears, then recall them in order!
+[*][B]Click Rush ([FONT=Courier New]click_rush[/FONT]):[/B] Interactive JSON chat button that rewards the fastest clicker.
+[*][B]Missing Chars ([FONT=Courier New]missing_chars[/FONT]):[/B] Complete words with masked letters.
+[*][B]Hover Reveal ([FONT=Courier New]hover_reveal[/FONT]):[/B] Hover your cursor over the chat badge to reveal the secret phrase.
+[*][B]Cipher String ([FONT=Courier New]cipher_string[/FONT]):[/B] Fast typing test with generated alphanumeric, hex, or symbol codes.
+[*][B]Arithmetic ([FONT=Courier New]arithmetic[/FONT]):[/B] Solve dynamic math equations (+, -, *, /) with scaling complexity.
+[*][B]Algebra ([FONT=Courier New]algebra[/FONT]):[/B] Deduce the unknown glyph value from a 3-row system of symbol equations.
+[*][B]Quiz ([FONT=Courier New]quiz[/FONT]):[/B] Server trivia questions supporting multiple valid answers.
+[/LIST]
+
+[B][COLOR=#55FF55]7 World Action Challenges:[/COLOR][/B]
+[LIST]
+[*][B]Slayer ([FONT=Courier New]slayer[/FONT]):[/B] First competitor to slay the target quota of a specific mob.
+[*][B]Mining ([FONT=Courier New]mining[/FONT]):[/B] First competitor to mine the target quota of blocks.
+[*][B]Building ([FONT=Courier New]building[/FONT]):[/B] First competitor to place the target quota of blocks.
+[*][B]Angling ([FONT=Courier New]angling[/FONT]):[/B] First competitor to catch specific fish or treasure from water.
+[*][B]Culinary ([FONT=Courier New]culinary[/FONT]):[/B] First competitor to consume required foods.
+[*][B]Artisan ([FONT=Courier New]artisan[/FONT]):[/B] First competitor to craft target items (supports shift-crafting).
+[*][B]Smelting ([FONT=Courier New]smelting[/FONT]):[/B] First competitor to smelt and extract items from a furnace.
+[/LIST]
+
+[HR][/HR]
+
+[SIZE=5][B][COLOR=#FFAA00]★ Commands & Permissions[/COLOR][/B][/SIZE]
+
+[B]Primary Command:[/B] [FONT=Courier New]/chatgames[/FONT] (Aliases: [FONT=Courier New]/cg[/FONT], [FONT=Courier New]/cgames[/FONT], [FONT=Courier New]/chatgame[/FONT])
+
+[TABLE]
+[TR]
+[TH]Command[/TH]
+[TH]Permission[/TH]
+[TH]Description[/TH]
+[/TR]
+[TR]
+[TD]/cg help[/TD]
+[TD]chatgames.command.help[/TD]
+[TD]Display the interactive command guide.[/TD]
+[/TR]
+[TR]
+[TD]/cg start <category|random> [args][/TD]
+[TD]chatgames.command.start.*[/TD]
+[TD]Launch a specific category or random round.[/TD]
+[/TR]
+[TR]
+[TD]/cg stop[/TD]
+[TD]chatgames.command.stop[/TD]
+[TD]Abort the currently active round.[/TD]
+[/TR]
+[TR]
+[TD]/cg top[/TD]
+[TD]chatgames.command.leaderboard[/TD]
+[TD]Display the top score leaderboard.[/TD]
+[/TR]
+[TR]
+[TD]/cg fastest[/TD]
+[TD]chatgames.command.fastest[/TD]
+[TD]Display the fastest reaction speed records.[/TD]
+[/TR]
+[TR]
+[TD]/cg score [player][/TD]
+[TD]chatgames.command.score[/TD]
+[TD]Inspect personal or another player's score.[/TD]
+[/TR]
+[TR]
+[TD]/cg score <add|take|set|reset> <player> [amt][/TD]
+[TD]chatgames.command.score.manage[/TD]
+[TD]Modify or reset competitor scores.[/TD]
+[/TR]
+[TR]
+[TD]/cg visibility [player][/TD]
+[TD]chatgames.command.visibility[/TD]
+[TD]Toggle round broadcast visibility.[/TD]
+[/TR]
+[TR]
+[TD]/cg audio [player][/TD]
+[TD]chatgames.command.audio[/TD]
+[TD]Toggle round sound cues.[/TD]
+[/TR]
+[TR]
+[TD]/cg scheduler[/TD]
+[TD]chatgames.command.scheduler[/TD]
+[TD]Pause or resume automatic rounds.[/TD]
+[/TR]
+[TR]
+[TD]/cg history [count][/TD]
+[TD]chatgames.command.history[/TD]
+[TD]View recent round audit logs.[/TD]
+[/TR]
+[TR]
+[TD]/cg reload[/TD]
+[TD]chatgames.command.reload[/TD]
+[TD]Reload all YAML configuration files.[/TD]
+[/TR]
+[/TABLE]

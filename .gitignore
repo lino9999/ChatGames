@@ -1,0 +1,16 @@
+/Plugin originale/
+/Plugin Originale/
+/.work/
+/.analysis/
+/.verification/
+/.tools/
+/target/
+/dist/
+/.idea/
+/.vscode/
+*.iml
+*.log
+*.hprof
+*.db
+/.env*
+/.DS_Store

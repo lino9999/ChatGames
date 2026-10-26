@@ -1,0 +1,217 @@
+global:
+  enabled: true
+  allow-creative-mode: false
+
+categories:
+  slayer:
+    enabled: true
+    duration-seconds: 180
+    count-spawner-entities: true
+    banner:
+      title: '&c&lSLAYER CHALLENGE'
+      subtitle: '&fSlay &e{quota}x {target}&f!'
+    targets:
+      ZOMBIE:
+        quotas:
+          3:
+            prize-pools: ['common-pool']
+          6:
+            prize-pools: ['uncommon-pool']
+      SKELETON:
+        quotas:
+          3:
+            prize-pools: ['common-pool']
+          6:
+            prize-pools: ['uncommon-pool']
+      CREEPER:
+        quotas:
+          3:
+            prize-pools: ['common-pool']
+          5:
+            prize-pools: ['uncommon-pool']
+      SPIDER:
+        quotas:
+          3:
+            prize-pools: ['common-pool']
+          6:
+            prize-pools: ['uncommon-pool']
+      ENDERMAN:
+        quotas:
+          2:
+            prize-pools: ['uncommon-pool']
+          4:
+            prize-pools: ['rare-pool']
+
+  mining:
+    enabled: true
+    duration-seconds: 60
+    banner:
+      title: '&b&lMINING CHALLENGE'
+      subtitle: '&fMine &e{quota}x {target}&f!'
+    targets:
+      STONE:
+        quotas:
+          16:
+            prize-pools: ['common-pool']
+          32:
+            prize-pools: ['uncommon-pool']
+      DEEPSLATE:
+        quotas:
+          16:
+            prize-pools: ['common-pool']
+          32:
+            prize-pools: ['uncommon-pool']
+      COAL_ORE:
+        quotas:
+          8:
+            prize-pools: ['uncommon-pool']
+      IRON_ORE:
+        quotas:
+          6:
+            prize-pools: ['uncommon-pool']
+      NETHERRACK:
+        quotas:
+          24:
+            prize-pools: ['common-pool']
+          48:
+            prize-pools: ['uncommon-pool']
+
+  building:
+    enabled: true
+    duration-seconds: 60
+    banner:
+      title: '&a&lBUILDING CHALLENGE'
+      subtitle: '&fPlace &e{quota}x {target}&f!'
+    targets:
+      COBBLESTONE:
+        quotas:
+          16:
+            prize-pools: ['common-pool']
+          32:
+            prize-pools: ['uncommon-pool']
+      OAK_PLANKS:
+        quotas:
+          16:
+            prize-pools: ['common-pool']
+          32:
+            prize-pools: ['uncommon-pool']
+      STONE_BRICKS:
+        quotas:
+          16:
+            prize-pools: ['common-pool']
+      TORCH:
+        quotas:
+          12:
+            prize-pools: ['common-pool']
+
+  angling:
+    enabled: true
+    duration-seconds: 120
+    banner:
+      title: '&3&lANGLING CHALLENGE'
+      subtitle: '&fCatch &e{quota}x {target}&f!'
+    targets:
+      COD:
+        quotas:
+          1:
+            prize-pools: ['common-pool']
+          3:
+            prize-pools: ['uncommon-pool']
+      SALMON:
+        quotas:
+          1:
+            prize-pools: ['common-pool']
+          3:
+            prize-pools: ['uncommon-pool']
+      PUFFERFISH:
+        quotas:
+          1:
+            prize-pools: ['uncommon-pool']
+
+  culinary:
+    enabled: true
+    duration-seconds: 60
+    banner:
+      title: '&6&lCULINARY CHALLENGE'
+      subtitle: '&fConsume &e{quota}x {target}&f!'
+    targets:
+      BREAD:
+        quotas:
+          2:
+            prize-pools: ['common-pool']
+          4:
+            prize-pools: ['uncommon-pool']
+      COOKED_BEEF:
+        quotas:
+          2:
+            prize-pools: ['common-pool']
+          4:
+            prize-pools: ['uncommon-pool']
+      BAKED_POTATO:
+        quotas:
+          2:
+            prize-pools: ['common-pool']
+      GOLDEN_APPLE:
+        quotas:
+          1:
+            prize-pools: ['rare-pool']
+
+  artisan:
+    enabled: true
+    duration-seconds: 120
+    banner:
+      title: '&e&lARTISAN CHALLENGE'
+      subtitle: '&fCraft &e{quota}x {target}&f!'
+    targets:
+      CRAFTING_TABLE:
+        quotas:
+          4:
+            prize-pools: ['common-pool']
+          8:
+            prize-pools: ['uncommon-pool']
+      CHEST:
+        quotas:
+          4:
+            prize-pools: ['common-pool']
+          8:
+            prize-pools: ['uncommon-pool']
+      FURNACE:
+        quotas:
+          2:
+            prize-pools: ['common-pool']
+          6:
+            prize-pools: ['uncommon-pool']
+      TORCH:
+        quotas:
+          32:
+            prize-pools: ['common-pool']
+          64:
+            prize-pools: ['uncommon-pool']
+
+  smelting:
+    enabled: true
+    duration-seconds: 150
+    banner:
+      title: '&d&lSMELTING CHALLENGE'
+      subtitle: '&fSmelt &e{quota}x {target}&f!'
+    targets:
+      IRON_INGOT:
+        quotas:
+          4:
+            prize-pools: ['common-pool']
+          8:
+            prize-pools: ['uncommon-pool']
+      GOLD_INGOT:
+        quotas:
+          4:
+            prize-pools: ['uncommon-pool']
+          8:
+            prize-pools: ['rare-pool']
+      COOKED_BEEF:
+        quotas:
+          4:
+            prize-pools: ['common-pool']
+      GLASS:
+        quotas:
+          8:
+            prize-pools: ['common-pool']

@@ -1,0 +1,314 @@
+word-banks:
+  scramble:
+    - 'Trial Chamber'
+    - 'Breeze Rod'
+    - 'Heavy Core'
+    - 'Mace'
+    - 'Vault Key'
+    - 'Wind Charge'
+    - 'Crafter'
+    - 'Armadillo'
+    - 'Wolf Armor'
+    - 'Cherry Grove'
+    - 'Sniffer Egg'
+    - 'Torchflower'
+    - 'Pitcher Pod'
+    - 'Echo Shard'
+    - 'Recovery Compass'
+    - 'Deep Dark'
+    - 'Ancient City'
+    - 'Sculk Shrieker'
+    - 'Sculk Catalyst'
+    - 'Warden'
+    - 'Allay'
+    - 'Amethyst Geode'
+    - 'Copper Bulb'
+    - 'Tuff Bricks'
+    - 'Dripstone Cave'
+    - 'Lush Caves'
+    - 'Axolotl'
+    - 'Glow Berries'
+    - 'Spore Blossom'
+    - 'Netherite Ingot'
+    - 'Ancient Debris'
+    - 'Bastion Remnant'
+    - 'Piglin Brute'
+    - 'Crimson Forest'
+    - 'Warped Fungus'
+    - 'Respawn Anchor'
+    - 'Lodestone'
+    - 'Crying Obsidian'
+    - 'Soul Speed'
+    - 'Swift Sneak'
+    - 'Elytra'
+    - 'Shulker Box'
+    - 'Dragon Breath'
+    - 'End Crystal'
+    - 'Chorus Fruit'
+    - 'Totem of Undying'
+    - 'Woodland Mansion'
+    - 'Ocean Monument'
+    - 'Conduit'
+    - 'Heart of the Sea'
+    - 'Nautilus Shell'
+    - 'Trident'
+    - 'Enchanting Table'
+    - 'Brewing Stand'
+    - 'Redstone Comparator'
+    - 'Daylight Detector'
+    - 'Blast Furnace'
+    - 'Cartography Table'
+    - 'Fletching Table'
+    - 'Smithing Table'
+
+  reverse:
+    - 'Diamond Pickaxe'
+    - 'Nether Fortress'
+    - 'Ender Dragon'
+    - 'Wither Skeleton'
+    - 'Golden Apple'
+    - 'Phantom Membrane'
+    - 'Slimeball'
+    - 'Magma Cream'
+    - 'Blaze Powder'
+    - 'Ghast Tear'
+    - 'Ender Pearl'
+    - 'Eye of Ender'
+    - 'Firework Rocket'
+    - 'Enchanted Book'
+    - 'Beacon Pyramid'
+    - 'Nether Star'
+    - 'Redstone Repeater'
+    - 'Sticky Piston'
+    - 'Hopper Minecart'
+    - 'Lightning Rod'
+    - 'Spyglass'
+    - 'Tinted Glass'
+    - 'Glowstone Dust'
+    - 'Sea Lantern'
+    - 'Prismarine Shard'
+    - 'Turtle Helmet'
+    - 'Scute'
+    - 'Honey Bottle'
+    - 'Beehive'
+    - 'Suspicious Stew'
+
+  type_race:
+    - 'Obsidian Portal'
+    - 'Fortune Pickaxe'
+    - 'Feather Falling'
+    - 'Mending Book'
+    - 'Silk Touch'
+    - 'Sharpness'
+    - 'Unbreaking'
+    - 'Looting Sword'
+    - 'Infinity Bow'
+    - 'Channeling Trident'
+    - 'Riptide'
+    - 'Multishot Crossbow'
+    - 'Quick Charge'
+    - 'Density Mace'
+    - 'Wind Burst'
+    - 'Breach'
+    - 'Trial Spawner'
+    - 'Ominous Bottle'
+    - 'Raid Captain'
+    - 'Hero of the Village'
+    - 'Wandering Trader'
+    - 'Iron Golem'
+    - 'Snow Golem'
+    - 'Elder Guardian'
+    - 'Evoker Fangs'
+    - 'Ravager'
+    - 'Vindicator'
+    - 'Pillager Outpost'
+    - 'Desert Temple'
+    - 'Jungle Pyramid'
+
+  missing_chars:
+    - 'Blackstone'
+    - 'Basalt Delta'
+    - 'Gilded Blackstone'
+    - 'Nether Quartz'
+    - 'Lapis Lazuli'
+    - 'Emerald Ore'
+    - 'Deepslate Coal'
+    - 'Raw Copper'
+    - 'Raw Iron'
+    - 'Raw Gold'
+    - 'Bamboo Raft'
+    - 'Chiseled Bookshelf'
+    - 'Hanging Sign'
+    - 'Decorated Pot'
+    - 'Brush'
+    - 'Trail Ruins'
+    - 'Ocean Ruins'
+    - 'Shipwreck'
+    - 'Buried Treasure'
+    - 'Stronghold'
+    - 'End City'
+    - 'Mushroom Fields'
+    - 'Badlands'
+    - 'Ice Spikes'
+    - 'Mangrove Swamp'
+
+  hover_reveal:
+    - 'Diamond Block'
+    - 'Netherite Sword'
+    - 'Golden Carrot'
+    - 'Glistening Melon'
+    - 'Fermented Spider Eye'
+    - 'Potion of Swiftness'
+    - 'Potion of Healing'
+    - 'Potion of Strength'
+    - 'Night Vision'
+    - 'Fire Resistance'
+    - 'Water Breathing'
+    - 'Slow Falling'
+    - 'Turtle Master'
+    - 'Music Disc Relic'
+    - 'Music Disc Creator'
+    - 'Music Disc Precipice'
+    - 'Music Disc Otherside'
+    - 'Music Disc Pigstep'
+    - 'Jukebox'
+    - 'Bell'
+
+  memory_list:
+    - 'Apple'
+    - 'Bread'
+    - 'Carrot'
+    - 'Potato'
+    - 'Melon'
+    - 'Pumpkin'
+    - 'Cookie'
+    - 'Cake'
+    - 'Steak'
+    - 'Porkchop'
+    - 'Mutton'
+    - 'Chicken'
+    - 'Rabbit'
+    - 'Salmon'
+    - 'Cod'
+    - 'Lantern'
+    - 'Torch'
+    - 'Bucket'
+    - 'Shears'
+    - 'Compass'
+    - 'Clock'
+    - 'Saddle'
+    - 'Shield'
+    - 'Arrow'
+    - 'Bow'
+    - 'Trident'
+    - 'Mace'
+    - 'Anvil'
+    - 'Cauldron'
+    - 'Hopper'
+
+algebra-symbols:
+  '★': 12
+  '♦': 18
+  '♣': 24
+  '♠': 30
+  '⚡': 15
+  '☀': 21
+
+quiz-bank:
+  q1:
+    prompt: 'How many obsidian blocks are needed to build the smallest functional Nether portal frame?'
+    accepted-answers:
+      - '10'
+      - 'ten'
+  q2:
+    prompt: 'Which hostile mob drops Breeze Rods inside Trial Chambers?'
+    accepted-answers:
+      - 'Breeze'
+      - 'The Breeze'
+  q3:
+    prompt: 'What item is combined with a Breeze Rod to craft the Mace?'
+    accepted-answers:
+      - 'Heavy Core'
+  q4:
+    prompt: 'Which mob is terrified of cats and ocelots?'
+    accepted-answers:
+      - 'Creeper'
+      - 'Creepers'
+      - 'Phantom'
+  q5:
+    prompt: 'What dimension contains End Cities and Shulkers?'
+    accepted-answers:
+      - 'The End'
+      - 'End'
+  q6:
+    prompt: 'How many iron ingots are required to craft an Anvil?'
+    accepted-answers:
+      - '31'
+      - 'thirty-one'
+      - 'thirty one'
+  q7:
+    prompt: 'What block is used to power a Conduit underwater?'
+    accepted-answers:
+      - 'Prismarine'
+      - 'Sea Lantern'
+      - 'Dark Prismarine'
+      - 'Prismarine Bricks'
+  q8:
+    prompt: 'Which enchantment allows a trident to propel the player through water or rain?'
+    accepted-answers:
+      - 'Riptide'
+  q9:
+    prompt: 'What item can be used on a Wolf to equip protective armor?'
+    accepted-answers:
+      - 'Wolf Armor'
+  q10:
+    prompt: 'Which sculk block summons the Warden after being triggered four times?'
+    accepted-answers:
+      - 'Sculk Shrieker'
+      - 'Shrieker'
+  q11:
+    prompt: 'How many bookshelves are required to reach level 30 enchantments?'
+    accepted-answers:
+      - '15'
+      - 'fifteen'
+  q12:
+    prompt: 'What material is needed to fuel a Brewing Stand?'
+    accepted-answers:
+      - 'Blaze Powder'
+  q13:
+    prompt: 'Which passive mob sniffs out Torchflower Seeds and Pitcher Pods?'
+    accepted-answers:
+      - 'Sniffer'
+      - 'The Sniffer'
+  q14:
+    prompt: 'What item prevents a player from dying when held in main hand or off-hand?'
+    accepted-answers:
+      - 'Totem of Undying'
+      - 'Totem'
+  q15:
+    prompt: 'How many Netherite Scraps are combined with Gold Ingots to craft one Netherite Ingot?'
+    accepted-answers:
+      - '4'
+      - 'four'
+  q16:
+    prompt: 'Which redstone block automatically crafts items when powered?'
+    accepted-answers:
+      - 'Crafter'
+  q17:
+    prompt: 'What block is used to set your respawn point in the Nether?'
+    accepted-answers:
+      - 'Respawn Anchor'
+  q18:
+    prompt: 'Which mob drops Scutes when brushed?'
+    accepted-answers:
+      - 'Armadillo'
+  q19:
+    prompt: 'What boss drops the Nether Star upon defeat?'
+    accepted-answers:
+      - 'Wither'
+      - 'The Wither'
+  q20:
+    prompt: 'What maximum stack size do Ender Pearls have?'
+    accepted-answers:
+      - '16'
+      - 'sixteen'
