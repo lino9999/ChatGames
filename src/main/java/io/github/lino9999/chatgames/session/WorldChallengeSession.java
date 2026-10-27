@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class WorldChallengeSession {
     private final ChallengeCategory category;
@@ -19,6 +20,7 @@ public class WorldChallengeSession {
     private final List<String> prizePoolIds;
     private final long startedAtMillis;
     private final Map<UUID, Integer> progressTracker = new ConcurrentHashMap<>();
+    private final AtomicBoolean concluded = new AtomicBoolean(false);
 
     public WorldChallengeSession(
             ChallengeCategory category,
@@ -76,6 +78,10 @@ public class WorldChallengeSession {
 
     public boolean hasCompletedQuota(UUID playerUuid) {
         return progressTracker.getOrDefault(playerUuid, 0) >= requiredQuota;
+    }
+
+    public boolean tryConclude() {
+        return concluded.compareAndSet(false, true);
     }
 
     public double computeElapsedSeconds() {

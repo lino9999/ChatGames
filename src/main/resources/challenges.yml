@@ -45,6 +45,7 @@ categories:
   mining:
     enabled: true
     duration-seconds: 60
+    prevent-placed-blocks: true
     banner:
       title: '&b&lMINING CHALLENGE'
       subtitle: '&fMine &e{quota}x {target}&f!'

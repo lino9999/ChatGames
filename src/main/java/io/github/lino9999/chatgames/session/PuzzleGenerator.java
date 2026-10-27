@@ -257,8 +257,9 @@ public final class PuzzleGenerator {
         String row1 = pairRowTemplate.replace("{symbol}", symA).replace("{sum}", String.valueOf(valA * occurrences));
         String row2 = pairRowTemplate.replace("{symbol}", symB).replace("{sum}", String.valueOf(valB * occurrences));
 
-        int lo = Math.min(minTotal, maxTotal);
-        int hi = Math.max(minTotal, maxTotal);
+        int minAllowed = valA + valB + 1;
+        int lo = Math.max(minAllowed, Math.min(minTotal, maxTotal));
+        int hi = Math.max(lo, Math.max(minTotal, maxTotal));
         int finalSum = ThreadLocalRandom.current().nextInt(lo, hi + 1);
         int unknownValue = finalSum - valA - valB;
 

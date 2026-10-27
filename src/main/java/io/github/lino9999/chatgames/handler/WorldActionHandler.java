@@ -30,6 +30,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class WorldActionHandler implements Listener {
     private static final String ARTIFICIAL_SPAWN_TAG = "cg_artificial_mob";
+    private static final String PLACED_BLOCK_TAG = "cg_placed_block";
 
     private final JavaPlugin plugin;
     private final ConfigurationRegistry registry;
@@ -58,13 +59,21 @@ public class WorldActionHandler implements Listener {
             return;
         }
         challenge.incrementProgress(player.getUniqueId(), quantity);
-        if (challenge.hasCompletedQuota(player.getUniqueId())) {
+        if (challenge.hasCompletedQuota(player.getUniqueId()) && challenge.tryConclude()) {
             orchestrator.recordRoundVictory(player);
         }
     }
 
     @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
     public void onMine(BlockBreakEvent event) {
+        boolean wasPlaced = event.getBlock().hasMetadata(PLACED_BLOCK_TAG);
+        if (wasPlaced) {
+            event.getBlock().removeMetadata(PLACED_BLOCK_TAG, plugin);
+        }
+        boolean blockPlacedExclusion = registry.challenges().flag("categories.mining.prevent-placed-blocks", true);
+        if (wasPlaced && blockPlacedExclusion) {
+            return;
+        }
         WorldChallengeSession challenge = orchestrator.getActiveChallenge();
         if (challenge != null && challenge.getCategory() == ChallengeCategory.MINING) {
             if (event.getBlock().getType() == challenge.getTargetMaterial()) {
@@ -75,6 +84,7 @@ public class WorldActionHandler implements Listener {
 
     @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
     public void onBuild(BlockPlaceEvent event) {
+        event.getBlock().setMetadata(PLACED_BLOCK_TAG, new FixedMetadataValue(plugin, Boolean.TRUE));
         WorldChallengeSession challenge = orchestrator.getActiveChallenge();
         if (challenge != null && challenge.getCategory() == ChallengeCategory.BUILDING) {
             if (event.getBlock().getType() == challenge.getTargetMaterial()) {
@@ -153,6 +163,13 @@ public class WorldActionHandler implements Listener {
             int maxByMatrix = computeMatrixYield(event.getInventory());
             int maxByStorage = computeInventoryCapacity(result, player.getInventory());
             produced = Math.min(maxByMatrix, maxByStorage);
+        } else {
+            ItemStack cursor = event.getCursor();
+            if (cursor != null && cursor.getType() != Material.AIR) {
+                if (!cursor.isSimilar(result) || cursor.getAmount() + result.getAmount() > cursor.getMaxStackSize()) {
+                    return;
+                }
+            }
         }
 
         if (produced > 0) {
@@ -172,6 +189,19 @@ public class WorldActionHandler implements Listener {
         if (event.getInventory() instanceof FurnaceInventory && event.getSlotType() == InventoryType.SlotType.RESULT) {
             ItemStack extracted = event.getCurrentItem();
             if (extracted != null && extracted.getType() == challenge.getTargetMaterial() && extracted.getAmount() > 0) {
+                ClickType click = event.getClick();
+                if (click == ClickType.SHIFT_LEFT || click == ClickType.SHIFT_RIGHT) {
+                    if (computeInventoryCapacity(extracted, player.getInventory()) < extracted.getAmount()) {
+                        return;
+                    }
+                } else {
+                    ItemStack cursor = event.getCursor();
+                    if (cursor != null && cursor.getType() != Material.AIR) {
+                        if (!cursor.isSimilar(extracted) || cursor.getAmount() + extracted.getAmount() > cursor.getMaxStackSize()) {
+                            return;
+                        }
+                    }
+                }
                 advanceChallenge(player, ChallengeCategory.SMELTING, extracted.getAmount());
             }
         }
